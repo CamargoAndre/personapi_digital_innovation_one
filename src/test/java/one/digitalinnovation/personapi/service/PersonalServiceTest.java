@@ -32,7 +32,7 @@ public class PersonalServiceTest {
         PersonDTO personDTO = createFakeDTO();
         Person expectedSavedPerson = createFakeEntity();
 
-        when(personRepository.save(expectedSavedPerson)).thenReturn(expectedSavedPerson);
+        when(personRepository.save(any(Person.class))).thenReturn(expectedSavedPerson);
 
         MessageResponseDTO expectedSuccessMessage = createExpectedMessageResponse(expectedSavedPerson.getId());
         MessageResponseDTO successMessage = personService.createPerson(personDTO);
